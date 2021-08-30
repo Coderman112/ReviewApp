@@ -1,0 +1,1063 @@
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateReviews (1)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" varchar, "likes" integer DEFAULT 0, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "1"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateComments (2)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar, "likes" integer DEFAULT 0, "post_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "2"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-08-29 20:11:20.834754"], ["updated_at", "2021-08-29 20:11:20.834754"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/lists" for ::1 at 2021-08-29 16:13:46 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/lists"):
+  
+Started GET "/reviews" for ::1 at 2021-08-29 16:13:52 -0400
+Processing by ReviewsController#index as HTML
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 2349)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 16:18:27 -0400
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.0ms | ActiveRecord: 0.1ms | Allocations: 530)
+
+
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:21:12 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:21:13 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:21:14 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:21:15 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:21:16 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:21:16 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:21:17 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:21:19 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:21:19 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:21:19 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:21:24 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:21:24 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:21:24 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:21:24 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:21:24 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:21:30 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:21:30 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:21:32 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:21:32 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started GET "/reviews" for ::1 at 2021-08-29 16:21:44 -0400
+Processing by ReviewsController#index as HTML
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 504)
+
+
+Started GET "/" for ::1 at 2021-08-29 16:21:49 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/christiancudby/.rvm/gems/ruby-2.7.2/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/christiancudby/.rvm/gems/ruby-2.7.2/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 7.7ms | Allocations: 182)
+Completed 200 OK in 17ms (Views: 8.6ms | ActiveRecord: 0.0ms | Allocations: 1965)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 16:21:55 -0400
+Processing by ReviewsController#index as HTML
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 508)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 16:26:00 -0400
+Processing by ReviewsController#index as HTML
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 505)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar, "likes" integer DEFAULT 0, "post_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "reviews"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" varchar, "likes" integer DEFAULT 0, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (2)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(1);
+
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-08-29 20:26:22.753672"], ["updated_at", "2021-08-29 20:26:22.753672"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "369304a8a4c1f8d96113a8581841afd8c3d886fc"], ["created_at", "2021-08-29 20:26:22.758717"], ["updated_at", "2021-08-29 20:26:22.758717"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar, "likes" integer DEFAULT 0, "post_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "reviews"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" varchar, "likes" integer DEFAULT 0, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (2)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(1);
+
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-08-29 20:26:22.771584"], ["updated_at", "2021-08-29 20:26:22.771584"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.1ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2021-08-29 20:26:22.777095"], ["key", "environment"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "369304a8a4c1f8d96113a8581841afd8c3d886fc"], ["created_at", "2021-08-29 20:26:22.782903"], ["updated_at", "2021-08-29 20:26:22.782903"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mReview Create (0.1ms)[0m  [1m[32mINSERT INTO "reviews" ("title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Django Unchained"], ["content", "Best movie ever made hands down. I will die on this hill"], ["created_at", "2021-08-29 20:26:22.803259"], ["updated_at", "2021-08-29 20:26:22.803259"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mReview Create (0.2ms)[0m  [1m[32mINSERT INTO "reviews" ("title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Django Unchained"], ["content", "Best movie ever made hands down. I will die on this hill"], ["created_at", "2021-08-29 20:27:14.666437"], ["updated_at", "2021-08-29 20:27:14.666437"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar, "likes" integer DEFAULT 0, "post_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "reviews"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" varchar, "likes" integer DEFAULT 0, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (2)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(1);
+
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-08-29 20:28:11.659180"], ["updated_at", "2021-08-29 20:28:11.659180"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "369304a8a4c1f8d96113a8581841afd8c3d886fc"], ["created_at", "2021-08-29 20:28:11.662463"], ["updated_at", "2021-08-29 20:28:11.662463"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar, "likes" integer DEFAULT 0, "post_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "reviews"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" varchar, "likes" integer DEFAULT 0, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (2)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(1);
+
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-08-29 20:28:11.672707"], ["updated_at", "2021-08-29 20:28:11.672707"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2021-08-29 20:28:11.677521"], ["key", "environment"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "369304a8a4c1f8d96113a8581841afd8c3d886fc"], ["created_at", "2021-08-29 20:28:11.682715"], ["updated_at", "2021-08-29 20:28:11.682715"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mReview Create (0.1ms)[0m  [1m[32mINSERT INTO "reviews" ("title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Django Unchained"], ["content", "Best movie ever made hands down. I will die on this hill"], ["created_at", "2021-08-29 20:28:11.701486"], ["updated_at", "2021-08-29 20:28:11.701486"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mReview Create (0.2ms)[0m  [1m[32mINSERT INTO "reviews" ("title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Django Unchained"], ["content", "Best movie ever made hands down. I will die on this hill"], ["created_at", "2021-08-29 20:28:30.895155"], ["updated_at", "2021-08-29 20:28:30.895155"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateComments (2)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "comments"[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "2"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateComments (2)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar, "likes" integer DEFAULT 0, "review_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "2"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mReview Create (0.2ms)[0m  [1m[32mINSERT INTO "reviews" ("title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Django Unchained"], ["content", "Best movie ever made hands down. I will die on this hill"], ["created_at", "2021-08-29 20:29:29.502314"], ["updated_at", "2021-08-29 20:29:29.502314"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("content", "review_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "That is a hot take if ever I've heard one"], ["review_id", 1], ["created_at", "2021-08-29 20:29:29.521509"], ["updated_at", "2021-08-29 20:29:29.521509"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/reviews" for ::1 at 2021-08-29 16:29:43 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ReviewsController#index as HTML
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 18ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 15773)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 16:30:01 -0400
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 0.7ms | Allocations: 2813)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 16:30:02 -0400
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 2812)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 16:35:41 -0400
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 0.7ms | Allocations: 2812)
+
+
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:35:46 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:35:46 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:35:46 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:35:47 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started GET "/reviews" for ::1 at 2021-08-29 16:36:11 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 16ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 14607)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 16:36:16 -0400
+Processing by ReviewsController#index as HTML
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 2809)
+
+
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:36:36 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:36:38 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:36:40 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:36:40 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:36:41 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started GET "/reviews" for ::1 at 2021-08-29 16:49:44 -0400
+Processing by ReviewsController#index as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 1.1ms | Allocations: 3323)
+
+
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:49:54 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:49:54 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:49:55 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started OPTIONS "/reviews" for ::1 at 2021-08-29 16:49:55 -0400
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/reviews"):
+  
+Started GET "/reviews" for ::1 at 2021-08-29 16:50:01 -0400
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 2788)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 16:50:19 -0400
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 15ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 14598)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 16:50:29 -0400
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2812)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 16:51:06 -0400
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 2812)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 16:51:07 -0400
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 2812)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 16:53:40 -0400
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 2812)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 17:35:49 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.7ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 32ms (Views: 0.1ms | ActiveRecord: 2.4ms | Allocations: 14617)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 17:44:37 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 16ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 14529)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 17:44:46 -0400
+Processing by ReviewsController#index as HTML
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 2813)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 17:57:32 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 27ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 14533)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 17:57:36 -0400
+Processing by ReviewsController#index as HTML
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 2813)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 18:15:44 -0400
+Processing by ReviewsController#index as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 25ms (Views: 0.1ms | ActiveRecord: 1.1ms | Allocations: 3330)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 18:15:58 -0400
+Processing by ReviewsController#index as HTML
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 21ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 2812)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 18:16:37 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 30ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 14602)
+
+
+Started GET "/reviews." for ::1 at 2021-08-29 20:10:00 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/reviews."):
+  
+Started GET "/reviews." for ::1 at 2021-08-29 20:10:06 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/reviews."):
+  
+Started GET "/" for ::1 at 2021-08-29 20:11:44 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/christiancudby/.rvm/gems/ruby-2.7.2/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/christiancudby/.rvm/gems/ruby-2.7.2/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 5.6ms | Allocations: 294)
+Completed 200 OK in 14ms (Views: 7.0ms | Allocations: 2269)
+
+
+Started GET "/favicon.ico" for ::1 at 2021-08-29 20:11:44 -0400
+Started GET "/apple-touch-icon-precomposed.png" for ::1 at 2021-08-29 20:11:44 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/apple-touch-icon.png" for ::1 at 2021-08-29 20:11:44 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+  
+Started GET "/students/1" for ::1 at 2021-08-29 20:11:44 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/students/1"):
+  
+Started GET "/favicon.ico" for ::1 at 2021-08-29 20:11:44 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/students/1" for ::1 at 2021-08-29 20:11:49 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/students/1"):
+  
+Started GET "/" for ::1 at 2021-08-29 20:11:50 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/christiancudby/.rvm/gems/ruby-2.7.2/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/christiancudby/.rvm/gems/ruby-2.7.2/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 8.2ms | Allocations: 178)
+Completed 200 OK in 11ms (Views: 9.5ms | Allocations: 802)
+
+
+Started GET "/" for ::1 at 2021-08-29 20:11:53 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/christiancudby/.rvm/gems/ruby-2.7.2/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/christiancudby/.rvm/gems/ruby-2.7.2/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.2ms | Allocations: 7)
+Completed 200 OK in 1ms (Views: 0.6ms | Allocations: 230)
+
+
+Started GET "/ratings/new" for ::1 at 2021-08-29 20:11:53 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/ratings/new"):
+  
+Started GET "/reviews" for ::1 at 2021-08-29 20:11:55 -0400
+Processing by ReviewsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 1.8ms | Allocations: 3532)
+
+
+Started GET "/favicon.ico" for ::1 at 2021-08-29 20:11:55 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/reviews." for ::1 at 2021-08-29 20:12:04 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/reviews."):
+  
+Started GET "/reviews." for ::1 at 2021-08-29 20:12:21 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/reviews."):
+  
+Started GET "/reviews." for ::1 at 2021-08-29 20:26:44 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/reviews."):
+  
+Started GET "/reviews." for ::1 at 2021-08-29 20:27:03 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/reviews."):
+  
+Started GET "/reviews." for ::1 at 2021-08-29 20:27:09 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/reviews."):
+  
+Started GET "/reviews." for ::1 at 2021-08-29 20:28:45 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/reviews."):
+  
+Started GET "/reviews" for ::1 at 2021-08-29 20:31:18 -0400
+Processing by ReviewsController#index as */*
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 15ms (Views: 0.1ms | ActiveRecord: 1.9ms | Allocations: 3325)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 20:33:55 -0400
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 2812)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 20:35:50 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 30ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 14547)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 20:35:56 -0400
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 2812)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 20:36:25 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 15ms (Views: 0.1ms | ActiveRecord: 0.7ms | Allocations: 14601)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 20:36:55 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 14ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 14581)
+
+
+Started GET "/index.html" for ::1 at 2021-08-29 21:48:12 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/index.html"):
+  
+Started GET "/favicon.ico" for ::1 at 2021-08-29 21:48:12 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/reviews" for ::1 at 2021-08-29 21:51:10 -0400
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 17ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 12870)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 21:51:16 -0400
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 0.7ms | Allocations: 2816)
+
+
+Started GET "/" for ::1 at 2021-08-29 21:52:18 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/christiancudby/.rvm/gems/ruby-2.7.2/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/christiancudby/.rvm/gems/ruby-2.7.2/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 7.2ms | Allocations: 182)
+Completed 200 OK in 13ms (Views: 8.4ms | ActiveRecord: 0.0ms | Allocations: 1559)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 21:52:22 -0400
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 14ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 2864)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 21:56:54 -0400
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 2793)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 21:57:11 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 31ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 14551)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 21:57:52 -0400
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 2816)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 21:58:10 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 15ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 14569)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 21:58:12 -0400
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 0.9ms | Allocations: 2816)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 21:58:13 -0400
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 2816)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 21:59:16 -0400
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 1.0ms | Allocations: 2816)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 21:59:37 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 14564)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 22:01:05 -0400
+Processing by ReviewsController#index as HTML
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 0.9ms | Allocations: 2813)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 22:08:41 -0400
+Processing by ReviewsController#index as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 14ms (Views: 0.2ms | ActiveRecord: 1.8ms | Allocations: 3330)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 22:09:08 -0400
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 0.8ms | Allocations: 2793)
+
+
+Started GET "/reviews" for ::1 at 2021-08-29 22:09:23 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+  ↳ app/controllers/reviews_controller.rb:5:in `index'
+Completed 200 OK in 28ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 14575)
+
+
